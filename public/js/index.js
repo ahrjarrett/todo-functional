@@ -3,14 +3,11 @@
 
 // helper functions
 const assignId = require('./assignId')
-
 const deleteTodo = (el) => {
   const parentNode = el.parentNode
-
   while(parentNode.firstChild) {
     parentNode.removeChild(parentNode.firstChild)
   }
-
   parentNode.parentNode.removeChild(parentNode)
 }
 
@@ -44,11 +41,9 @@ saveTodo.addEventListener('click', (e) => {
   deleteBtn.addEventListener('click', (e) => {
     e.preventDefault()
     deleteTodo(e.target)
-
   })
 
 })
-
 
 
 }())

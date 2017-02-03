@@ -9,5 +9,9 @@
   },
   "keywords": [],
   "author": "Andrew Jarrett <ahrjarrett@gmail.com> (https://github.com/ahrjarrett)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "3.2.0",
+    "should": "11.2.0"
+  }
 }
