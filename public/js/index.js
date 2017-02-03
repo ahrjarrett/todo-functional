@@ -1,37 +1,44 @@
 ;(function() {
-
 'use strict'
 
-// Functions
-const _ = require('./utils.js')
-const inc = (state) => state + 1
-const assignId = (node, state) => {
-  const uuid = inc(state)
-  node.id = uuid
-}
+// helper functions
+const assignId = require('./assignId')
+const deleteTodo = () => {}
 
-// DOM
+// DOM nodes
 const saveTodo = document.getElementById('save-todo')
 const todos = document.getElementById('todos')
-let newTodo = document.getElementById('new-todo')
+const newTodo = document.getElementById('new-todo')
 
-// Initializing
 let counter = 0
-
-const testEl = document.querySelector('.wrapper')
 
 saveTodo.addEventListener('click', (e) => {
   e.preventDefault()
   const todoValue = newTodo.value || ''
 
-  const todo = document.createElement('p')
-  todos.appendChild(todo)
-  todo.innerHTML = todoValue
+  const todo = document.createElement('div')
+  const todoText = todo.appendChild(document.createElement('p'))
+  todoText.innerHTML = todoValue
+
+  const deleteBtn = todo.appendChild(document.createElement('a'))
+  todo.classList.add('todo')
+  deleteBtn.innerHTML = '&#10006;'
+  deleteBtn.classList.add('delete-todo')
+  deleteBtn.href = '#'
+
+  // this is brittle, using counter then not incrementing it. rm side-effects
+  assignId(deleteBtn, counter)
   assignId(todo, counter++)
 
+  todos.appendChild(todo)
+
+  deleteBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+
+
+  })
+
 })
-
-
 
 
 
