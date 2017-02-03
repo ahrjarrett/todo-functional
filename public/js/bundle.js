@@ -13,7 +13,16 @@ module.exports = function assignId(node, state) {
 
 // helper functions
 const assignId = require('./assignId')
-const deleteTodo = () => {}
+
+const deleteTodo = (el) => {
+  const parentNode = el.parentNode
+
+  while(parentNode.firstChild) {
+    parentNode.removeChild(parentNode.firstChild)
+  }
+
+  parentNode.parentNode.removeChild(parentNode)
+}
 
 // DOM nodes
 const saveTodo = document.getElementById('save-todo')
@@ -44,7 +53,7 @@ saveTodo.addEventListener('click', (e) => {
 
   deleteBtn.addEventListener('click', (e) => {
     e.preventDefault()
-
+    deleteTodo(e.target)
 
   })
 
