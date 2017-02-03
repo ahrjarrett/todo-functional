@@ -8,6 +8,14 @@ a {
   display: inline-block
 }
 
+.show-item {
+  display: block !important;
+}
+
+.hide-item {
+  display: none !important;
+}
+
 .wrapper {
   max-width: 600px;
   margin: 0 auto;
@@ -21,6 +29,13 @@ a {
   align-items: center;
 }
 
-.delete-todo {
+.delete-todo, .type-info {
   padding-left: 5px;
+}
+
+.new-type-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 auto;
 }

@@ -9,9 +9,23 @@
 
   <h1> todo: </h1>
 
-  <form>
-    <input id='new-todo' type='text' placeholder='new thing to do' autofocus>
-    <button id='save-todo'> save </button>
+  <div class='todo-form-wrapper'>
+    <form id='todo-form'>
+      <input id='new-todo' type='text' placeholder='new thing to do' autofocus>
+      <button id='save-todo' style='display:none'></button>
+    </form>
+  </div>
+
+  <form id='type-form'>
+    Type:
+    <select id='select-type'>
+      <option value='none'> None </option>
+    </select>
+    <div class='new-type-wrapper'>
+      <button id='create-type'> Create New Type </button>
+      <input id='new-type' style='display:none' placeholder='What type is it?'>
+      <button id='save-type' style='display:none' type='submit'> Save Type </button>
+    </div>
   </form>
 
   <div id='todos'></div>
