@@ -1,0 +1,13 @@
+{
+  "name": "todo-functional",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tdd": "mocha -w -R spec",
+    "watch": "watchify public/js/index.js -o public/js/bundle.js"
+  },
+  "keywords": [],
+  "author": "Andrew Jarrett <ahrjarrett@gmail.com> (https://github.com/ahrjarrett)",
+  "license": "MIT"
+}
