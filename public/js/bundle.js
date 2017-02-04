@@ -76,11 +76,15 @@ saveType.addEventListener('click', (e) => {
   const typeName = newType.value
   const type = document.createElement('option')
   type.value, type.text = typeName
+  console.log(typeName)
   if(typeName) selectType.appendChild(type)
+  // next 3 lines are crufty, violate DRY
+  const typeForFilter = document.createElement('option')
+  typeForFilter.value, typeForFilter.text = typeName
+  if(typeName) selectFilter.appendChild(typeForFilter)
   newType.value = ''
   newType.classList.remove('show-item')
   saveType.classList.remove('show-item')
-  //if(typeName) selectFilter.appendChild(type)
 })
 
 showFilters.addEventListener('click', (e) => {
