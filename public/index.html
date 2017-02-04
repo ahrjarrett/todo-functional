@@ -21,14 +21,25 @@
     <select id='select-type'>
       <option value='none'> None </option>
     </select>
-    <div class='new-type-wrapper'>
-      <button id='create-type'> Create New Type </button>
-      <input id='new-type' style='display:none' placeholder='What type is it?'>
-      <button id='save-type' style='display:none' type='submit'> Save Type </button>
-    </div>
   </form>
 
   <div id='todos'></div>
+
+</div>
+
+<div class='new-type-wrapper'>
+  <form class='new-type-form'>
+    <button id='create-type'> Create New Type </button>
+    <input id='new-type' style='display:none' placeholder='What type is it?'>
+    <button id='save-type' style='display:none' type='submit'> Save Type </button>
+  </form>
+
+  <div class='filters-wrapper'>
+    <button id='show-filters'> Filter Todos </button>
+    <select id='select-filter' style='display:none'>
+      <option value='none'> None </option>
+    </select>
+  </div>
 
 </div>
 

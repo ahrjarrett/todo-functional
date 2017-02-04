@@ -29,6 +29,8 @@ const newType = document.getElementById('new-type')
 const createType = document.getElementById('create-type')
 const saveType = document.getElementById('save-type')
 const selectType = document.getElementById('select-type')
+const showFilters = document.getElementById('show-filters')
+const selectFilter = document.getElementById('select-filter')
 
 let counter = 0
 
@@ -36,7 +38,6 @@ saveTodo.addEventListener('click', (e) => {
   e.preventDefault()
   const todoValue = newTodo.value || ''
   const type = selectType.value
-  console.log(type)
 
   const todo = document.createElement('div')
   const todoText = todo.appendChild(document.createElement('p'))
@@ -54,7 +55,6 @@ saveTodo.addEventListener('click', (e) => {
   deleteBtn.classList.add('delete-todo')
   deleteBtn.href = '#'
 
-
   assignId(deleteBtn, counter)
   assignId(todo, counter++)
   todos.appendChild(todo)
@@ -67,26 +67,27 @@ saveTodo.addEventListener('click', (e) => {
 
 createType.addEventListener('click', (e) => {
   e.preventDefault()
-
   newType.classList.add('show-item')
   saveType.classList.add('show-item')
 })
 
 saveType.addEventListener('click', (e) => {
   e.preventDefault()
-
   const typeName = newType.value
   const type = document.createElement('option')
   type.value, type.text = typeName
   if(typeName) selectType.appendChild(type)
   newType.value = ''
-
-
   newType.classList.remove('show-item')
   saveType.classList.remove('show-item')
-
+  //if(typeName) selectFilter.appendChild(type)
 })
 
+showFilters.addEventListener('click', (e) => {
+  e.preventDefault()
+  selectFilter.classList.toggle('show-item')
+
+})
 
 }())
 
