@@ -2,7 +2,8 @@
 'use strict'
 
 // helper functions
-const assignId = require('./assignId')
+const assignId = require('./src/assignId')
+const trimClass = require('./src/trimClass')
 
 const deleteTodo = (el) => {
   const parentNode = el.parentNode
@@ -12,8 +13,10 @@ const deleteTodo = (el) => {
   parentNode.parentNode.removeChild(parentNode)
 }
 
-const filterTodos = () => {
+console.log(trimClass('type-none', new RegExp('type-')))
 
+const filterTodos = (className) => {
+  return className
 }
 
 
@@ -42,7 +45,7 @@ saveTodo.addEventListener('click', (e) => {
 
   const typeInfo = todo.appendChild(document.createElement('a'))
   typeInfo.innerHTML = `[type: ${type}]`
-  typeInfo.classList.add('type-info', `type-${type}`)
+  typeInfo.classList.add('info', `type-${type}`)
   typeInfo.href = '#'
 
   const deleteBtn = todo.appendChild(document.createElement('a'))
@@ -72,11 +75,10 @@ saveType.addEventListener('click', (e) => {
   const typeName = newType.value
   const type = document.createElement('option')
   const typeForFilter = document.createElement('option')
-  type.value, type.text, typeForFilter.value, typeForFilter.text = typeName
-  if(typeName) {
-    selectType.appendChild(type)
-    selectFilter.appendChild(typeForFilter)
-  }
+  type.value, type.text = typeName
+  typeForFilter.value, typeForFilter.text = typeName
+  if(typeName) selectType.appendChild(type)
+  if(typeName) selectFilter.appendChild(typeForFilter)
   newType.value = ''
   newType.classList.remove('show-item')
   saveType.classList.remove('show-item')

@@ -1,4 +1,4 @@
-const inc = require('../public/js/internal/_inc')
+const inc = require('../public/js/src/internal/_inc')
 let counter = 0
 
 describe('increment fn:', () => {
