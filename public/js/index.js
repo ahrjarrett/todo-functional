@@ -3,6 +3,7 @@
 
 // helper functions
 const assignId = require('./assignId')
+
 const deleteTodo = (el) => {
   const parentNode = el.parentNode
   while(parentNode.firstChild) {
@@ -11,15 +12,20 @@ const deleteTodo = (el) => {
   parentNode.parentNode.removeChild(parentNode)
 }
 
+const filterTodos = () => {
+
+}
+
+
 // DOM nodes
-const saveTodo = document.getElementById('save-todo')
-const todos = document.getElementById('todos')
-const newTodo = document.getElementById('new-todo')
-const newType = document.getElementById('new-type')
-const createType = document.getElementById('create-type')
-const saveType = document.getElementById('save-type')
-const selectType = document.getElementById('select-type')
-const showFilters = document.getElementById('show-filters')
+const saveTodo     = document.getElementById('save-todo')
+const todos        = document.getElementById('todos')
+const newTodo      = document.getElementById('new-todo')
+const newType      = document.getElementById('new-type')
+const createType   = document.getElementById('create-type')
+const saveType     = document.getElementById('save-type')
+const selectType   = document.getElementById('select-type')
+const showFilters  = document.getElementById('show-filters')
 const selectFilter = document.getElementById('select-filter')
 
 let counter = 0
@@ -65,13 +71,12 @@ saveType.addEventListener('click', (e) => {
   e.preventDefault()
   const typeName = newType.value
   const type = document.createElement('option')
-  type.value, type.text = typeName
-  console.log(typeName)
-  if(typeName) selectType.appendChild(type)
-  // next 3 lines are crufty, violate DRY
   const typeForFilter = document.createElement('option')
-  typeForFilter.value, typeForFilter.text = typeName
-  if(typeName) selectFilter.appendChild(typeForFilter)
+  type.value, type.text, typeForFilter.value, typeForFilter.text = typeName
+  if(typeName) {
+    selectType.appendChild(type)
+    selectFilter.appendChild(typeForFilter)
+  }
   newType.value = ''
   newType.classList.remove('show-item')
   saveType.classList.remove('show-item')
@@ -80,7 +85,6 @@ saveType.addEventListener('click', (e) => {
 showFilters.addEventListener('click', (e) => {
   e.preventDefault()
   selectFilter.classList.toggle('show-item')
-
 })
 
 }())
