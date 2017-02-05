@@ -7,7 +7,7 @@ todo app todo:
 - **createType input:** add some validation & error feedback
 - **createType input:** use regex to replace spaces with dashes
 - **trimClass:** rename to something more generic
-- **hideTodo:** test hideTodo and its primitive function
+- ~~**hideTodo:** test hideTodo and its primitive function~~
 - assignId function is stateful; make pure, or just remove it and handle logic in eventHandler?
 - add a way to mark todo complete (add strike-through class)
 - add a way to edit todos (double-click would be a nice touch)

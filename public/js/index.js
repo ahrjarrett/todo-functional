@@ -15,14 +15,17 @@ const deleteTodo = (el) => {
   parentNode.parentNode.removeChild(parentNode)
 }
 
-const addClass = (el, className) => el.classList.add(className)
+const addClass = (el, className) =>
+  document.getElementById(el).classList.add(className)
 
-const hideTodo = (el) => {
-  addClass(el, 'hide-item')
-}
+const hideElement = (el) => addClass(el, 'hide-item')
+const showElement = (el) => addClass(el, 'show-item')
 
+clickListener('todo-form')((e) => {
 
-clickListener('todo-form')((e) => console.log(e))
+  e.preventDefault()
+  //hideElement('todo-form')
+})
 
 
 // DOM nodes
@@ -93,11 +96,6 @@ showFilters.addEventListener('click', (e) => {
   e.preventDefault()
   selectFilter.classList.toggle('show-item')
 })
-
-
-
-
-
 
 
 }())
