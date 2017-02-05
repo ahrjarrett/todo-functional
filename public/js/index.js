@@ -4,7 +4,9 @@
 // helper functions
 const assignId = require('./src/assignId')
 const trimClass = require('./src/trimClass')
+const addCurriedListener = require('./src/addCurriedListener.js')
 
+const clickListener = addCurriedListener('click')
 const deleteTodo = (el) => {
   const parentNode = el.parentNode
   while(parentNode.firstChild) {
@@ -13,11 +15,14 @@ const deleteTodo = (el) => {
   parentNode.parentNode.removeChild(parentNode)
 }
 
-console.log(trimClass('type-none', new RegExp('type-')))
+const addClass = (el, className) => el.classList.add(className)
 
-const filterTodos = (className) => {
-  return className
+const hideTodo = (el) => {
+  addClass(el, 'hide-item')
 }
+
+
+clickListener('todo-form')((e) => console.log(e))
 
 
 // DOM nodes
@@ -88,5 +93,11 @@ showFilters.addEventListener('click', (e) => {
   e.preventDefault()
   selectFilter.classList.toggle('show-item')
 })
+
+
+
+
+
+
 
 }())

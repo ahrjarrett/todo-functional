@@ -5,7 +5,9 @@
 // helper functions
 const assignId = require('./src/assignId')
 const trimClass = require('./src/trimClass')
+const addCurriedListener = require('./src/addCurriedListener.js')
 
+const clickListener = addCurriedListener('click')
 const deleteTodo = (el) => {
   const parentNode = el.parentNode
   while(parentNode.firstChild) {
@@ -14,11 +16,14 @@ const deleteTodo = (el) => {
   parentNode.parentNode.removeChild(parentNode)
 }
 
-console.log(trimClass('type-none', new RegExp('type-')))
+const addClass = (el, className) => el.classList.add(className)
 
-const filterTodos = (className) => {
-  return className
+const hideTodo = (el) => {
+  addClass(el, 'hide-item')
 }
+
+
+clickListener('todo-form')((e) => console.log(e))
 
 
 // DOM nodes
@@ -90,9 +95,24 @@ showFilters.addEventListener('click', (e) => {
   selectFilter.classList.toggle('show-item')
 })
 
+
+
+
+
+
+
 }())
 
-},{"./src/assignId":2,"./src/trimClass":4}],2:[function(require,module,exports){
+},{"./src/addCurriedListener.js":2,"./src/assignId":3,"./src/trimClass":5}],2:[function(require,module,exports){
+// addCurriedListener : Event -> Node -> Function -> Listener
+const addCurriedListener = (e) => (elem) => (fn) => {
+  const target = document.getElementById(elem)
+  return target.addEventListener(e, fn)
+}
+
+module.exports = addCurriedListener
+
+},{}],3:[function(require,module,exports){
 const inc = require('./internal/_inc')
 
 module.exports = function assignId(node, state) {
@@ -101,11 +121,11 @@ module.exports = function assignId(node, state) {
   node.id = namespace + '-' + uuid
 }
 
-},{"./internal/_inc":3}],3:[function(require,module,exports){
+},{"./internal/_inc":4}],4:[function(require,module,exports){
 // inc : Number -> Number
 module.exports = (state) => state + 1
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 module.exports = function trimClass(className, regex) {
   return className.replace(regex, className => '')
 }
