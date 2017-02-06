@@ -16,7 +16,11 @@ li {
 a {
   color: #ccc;
   text-decoration: none;
-  display: inline-block
+  display: inline-block;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .show-item {

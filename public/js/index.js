@@ -7,6 +7,7 @@ const trimClass = require('./src/trimClass')
 const addCurriedListener = require('./src/addCurriedListener.js')
 
 const clickListener = addCurriedListener('click')
+
 const deleteTodo = (el) => {
   const parentNode = el.parentNode
   while(parentNode.firstChild) {
@@ -21,12 +22,6 @@ const addClass = (el, className) =>
 const hideElement = (el) => addClass(el, 'hide-item')
 const showElement = (el) => addClass(el, 'show-item')
 
-clickListener('todo-form')((e) => {
-
-  e.preventDefault()
-  //hideElement('todo-form')
-})
-
 
 // DOM nodes
 const saveTodo     = document.getElementById('save-todo')
@@ -38,6 +33,12 @@ const saveType     = document.getElementById('save-type')
 const selectType   = document.getElementById('select-type')
 const showFilters  = document.getElementById('show-filters')
 const selectFilter = document.getElementById('select-filter')
+
+clickListener('debug')((e) => {
+  e.preventDefault()
+
+})
+
 
 let counter = 0
 
@@ -62,6 +63,7 @@ saveTodo.addEventListener('click', (e) => {
   deleteBtn.classList.add('delete-todo')
   deleteBtn.href = '#'
 
+  assignId(typeInfo, counter)
   assignId(deleteBtn, counter)
   assignId(todo, counter++)
   todos.appendChild(todo)
