@@ -2,7 +2,10 @@
 
 written in vanilla js, attempting functional style/tests
 
-todo app todo:
+### *instructions:*
+run `npm run watch` after installing dependencies with `npm i`
+
+### *todo app todo:*
 - ~~for some reason, I can’t seem to add a new type to both the todo and filter todos select > options~~
 - **createType input:** add some validation & error feedback
 - **createType input:** use regex to replace spaces with dashes
@@ -12,3 +15,4 @@ todo app todo:
 - add a way to mark todo complete (add strike-through class)
 - add a way to edit todos (double-click would be a nice touch)
 - implement immutable data structures so you can safely apply ‘undo’ functionality
+- remove bundle.js file from previous commits
